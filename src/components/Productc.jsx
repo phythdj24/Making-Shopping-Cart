@@ -1,33 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 
 const Productc = () => {
-  const [product, setProduct] = useState([]);
 
-  const fetchProducts = async () => {
-    const data = await fetch('https://fakestoreapi.com/products');
-    const res = await data.json();
-    setProduct(res);
-  };
+    const [product, setProduct] = useState([])
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  
+    const FetchProducts = async()=>{
+        try {
+            const data = await fetch('https://fakestoreapi.com/products');
+         const res =  await data.json()
+         setProduct(res)         
+        } catch (error) {
+            console.log(error)
+            
+        }
+         
+
+    }
+
+    useEffect(()=>{
+        FetchProducts()
+    },[])
+
+
+
 
   return (
     <div>
-      {product.map((item) => (
-        <div key={item.id}>
-        <h1 >
-            {item.title}</h1>
+        {
+            product.map((item)=>(
+                <h1 key={item.id}>{item.title}</h1>
+     ))
+        }
 
-            <img src={item.image} alt="" />
-
-            </div>
-
-            
-      ))}
     </div>
-  );
-};
+  )
+}
 
-export default Productc;
+export default Productc
