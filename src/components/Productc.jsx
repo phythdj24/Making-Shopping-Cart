@@ -29,7 +29,10 @@ const Productc = () => {
     <div>
         {
             product.map((item)=>(
+                <>
                 <h1 key={item.id}>{item.title}</h1>
+                <h2>{item.price}</h2>
+                </>
      ))
         }
 
