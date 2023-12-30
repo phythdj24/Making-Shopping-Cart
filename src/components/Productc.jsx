@@ -26,17 +26,29 @@ const Productc = () => {
 
 
   return (
-    <div>
+
+    <>
+    <div className='Nav'>
+        <h1>Home</h1>
+        <h1>Cart</h1>
+
+
+    </div>
+  
+    <div className='main'>
         {
             product.map((item)=>(
-                <>
+                <div className='Card'>
+                    <img src={item.image} alt="" />
                 <h1 key={item.id}>{item.title}</h1>
                 <h2>{item.price}</h2>
-                </>
+                <button className='btn'>ADD</button>
+                </div>
      ))
         }
 
     </div>
+    </>
   )
 }
 

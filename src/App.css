@@ -1,9 +1,39 @@
 *{
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img{
+  height: 40vh;
+  width: 40vh;
+}
+.main{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  background-color: #272529;
+  padding: 10px;
+  
+}
+.Card{
+  background: rgb(122, 115, 115);
+  padding: 20px;
   text-align: center;
-  background-color: black;
-  color: aliceblue;
+  border-radius: 10px;
+}
+.Nav{
+  display: flex;
+  justify-content: space-between;
+}
+.btn{
+  border: none;
+  outline: none;
+  background: #764abc;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
