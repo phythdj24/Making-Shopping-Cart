@@ -35,7 +35,9 @@ const AddHandle = ()=>{
     <>
     <div className='Nav'>
         <h1>Home</h1>
+        <a href="CartPage.jsx">
         <h1>Cart {cartCount} </h1>
+        </a>
         <h1>About</h1>
 
 
