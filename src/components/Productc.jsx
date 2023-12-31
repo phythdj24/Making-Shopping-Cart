@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react'
 const Productc = () => {
 
     const [product, setProduct] = useState([])
+    const [cartCount, setCartCount] = useState(0)
+
+    
 
   
     const FetchProducts = async()=>{
@@ -22,7 +25,9 @@ const Productc = () => {
         FetchProducts()
     },[])
 
-
+const AddHandle = ()=>{
+    setCartCount(cartCount + 1)
+}
 
 
   return (
@@ -30,7 +35,7 @@ const Productc = () => {
     <>
     <div className='Nav'>
         <h1>Home</h1>
-        <h1>Cart</h1>
+        <h1>Cart {cartCount} </h1>
 
 
     </div>
@@ -42,7 +47,7 @@ const Productc = () => {
                     <img src={item.image} alt="" />
                 <h1 key={item.id}>{item.title}</h1>
                 <h2>{item.price}</h2>
-                <button className='btn'>ADD</button>
+                <button onClick={AddHandle} className='btn'>ADD</button>
                 </div>
      ))
         }
