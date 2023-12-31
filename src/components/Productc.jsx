@@ -36,6 +36,7 @@ const AddHandle = ()=>{
     <div className='Nav'>
         <h1>Home</h1>
         <h1>Cart {cartCount} </h1>
+        <h1>About</h1>
 
 
     </div>
