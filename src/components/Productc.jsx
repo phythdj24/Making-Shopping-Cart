@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { addItem } from '../store/CartSlice'
 
-const Productc = ({title,name,price,image}) => {
 
+const Productc = ({title,name,price,image}) => {
+    
+    const itemsCount = useSelector((state)=> state.cart )
     const [product, setProduct] = useState([])
     const [cartCount, setCartCount] = useState(0)
     const dispatch = useDispatch()
@@ -29,9 +31,11 @@ const Productc = ({title,name,price,image}) => {
         FetchProducts()
     },[])
 
-const AddHandle = (product)=>{
+const AddHandle = (item)=>{
    
-    useDispatch(addItem(product))
+    dispatch(addItem(item))
+   
+    
 }
 
 
@@ -42,7 +46,7 @@ const AddHandle = (product)=>{
         <h1>Home</h1>
         <h1>About</h1>
         <Link to="/cart">
-        <h1>Cart {cartCount} </h1>
+        <h1>Cart {itemsCount.length} </h1>
         </Link>
         
     
@@ -54,11 +58,11 @@ const AddHandle = (product)=>{
     <div className='main'>
         {
             product.map((item)=>(
-                <div className='Card'>
+                <div key={item.id} className='Card'>
                     <img src={item.image} alt="" />
                 <h1 key={item.id}>{item.title}</h1>
                 <h2>{item.price}</h2>
-                <button onClick={()=>AddHandle(product)} className='btn'>ADD</button>
+                <button onClick={()=>AddHandle(item)} className='btn'>ADD</button>
                 </div>
      ))
         }
