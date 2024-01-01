@@ -1,5 +1,7 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Productc from './components/Productc'
+import CartPage from './components/CartPage'
 
 function App() {
 
@@ -7,7 +9,27 @@ function App() {
   return (
     <>
    
-     <Productc />
+   <BrowserRouter>
+   <Routes>
+
+    <Route element={<Productc />} path='/' />
+    <Route element={<CartPage />} path='/cart' />
+  
+
+    
+
+
+
+
+
+   </Routes>
+   
+   
+   
+   
+   
+   </BrowserRouter>
+     
     
     </>
   )

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Productc = () => {
 
@@ -35,9 +36,12 @@ const AddHandle = ()=>{
     <>
     <div className='Nav'>
         <h1>Home</h1>
-        <a href="CartPage.jsx">
+        
+        <Link to="/cart">
         <h1>Cart {cartCount} </h1>
-        </a>
+        </Link>
+        
+    
         <h1>About</h1>
 
 
