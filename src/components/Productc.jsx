@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { addItem } from '../store/CartSlice'
 
-const Productc = () => {
+const Productc = ({title,name,price,image}) => {
 
     const [product, setProduct] = useState([])
     const [cartCount, setCartCount] = useState(0)
+    const dispatch = useDispatch()
 
     
 
@@ -26,8 +29,9 @@ const Productc = () => {
         FetchProducts()
     },[])
 
-const AddHandle = ()=>{
-    setCartCount(cartCount + 1)
+const AddHandle = (product)=>{
+   
+    useDispatch(addItem(product))
 }
 
 
@@ -36,13 +40,13 @@ const AddHandle = ()=>{
     <>
     <div className='Nav'>
         <h1>Home</h1>
-        
+        <h1>About</h1>
         <Link to="/cart">
         <h1>Cart {cartCount} </h1>
         </Link>
         
     
-        <h1>About</h1>
+        
 
 
     </div>
@@ -54,7 +58,7 @@ const AddHandle = ()=>{
                     <img src={item.image} alt="" />
                 <h1 key={item.id}>{item.title}</h1>
                 <h2>{item.price}</h2>
-                <button onClick={AddHandle} className='btn'>ADD</button>
+                <button onClick={()=>AddHandle(product)} className='btn'>ADD</button>
                 </div>
      ))
         }
